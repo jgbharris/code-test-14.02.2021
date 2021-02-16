@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import CurrentWeather from './Components/CurrentWeather'
 import keys from "./keys";
 
 const api = {
@@ -60,8 +61,10 @@ function App() {
         {typeof weather != "undefined" && typeof weather.list != "undefined" ? (
           <div>
             <div className="location-container">
+            <div><img src={`http://openweathermap.org/img/wn/${weather.list[0]["weather"][0]["icon"]}@4x.png`}></img></div>
               <div className="location">
-                {/* {weather.city.name}, {weather.city.country} */}
+                {weather.city.name}, {weather.city.country}
+                
               </div>
               <div className="date"> {dateBuild(new Date())}</div>
             </div>
@@ -71,12 +74,22 @@ function App() {
               </div>
               <div className="weather">{(weather.list[0]["main"]["feels_like"])}</div>
               <div className="weather">{(weather.list[0]["main"]["humidity"])}</div>
-              <div className="weather">{(weather.list[0]["main"]["description"])}</div>
+              <div className="weather">{(weather.list[0]["weather"][0]["description"])}</div>
             </div>
           </div>
         ) : (
-          ""
+          "City not found"
         )}
+        {typeof weather != "undefined" && typeof weather.list != "undefined" ? <CurrentWeather
+          icon={weather.list[0]["weather"][0]["icon"]}
+          city={weather.city.name}
+          country={weather.city.country}
+          date={dateBuild(new Date())}
+          temp={Math.round(weather.list[0]["main"]["temp"])}
+          feels={(weather.list[0]["main"]["feels_like"])}
+          humidity={(weather.list[0]["main"]["humidity"])}
+          description={(weather.list[0]["weather"][0]["description"])}/> : null}
+  
       </main>
     </div>
   );
