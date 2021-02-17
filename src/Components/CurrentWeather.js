@@ -6,7 +6,7 @@ function CurrentWeather(props) {
         <div>
             <div className="location-container">
                 <div>
-                    <img src={
+                    <img alt="icon" src={
                         props.icon
                             ? `http://openweathermap.org/img/wn/${props.icon}@4x.png`
                             : null

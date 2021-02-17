@@ -4,7 +4,7 @@ function ForecastWeatherBox(props) {
             <div className="temperature">{props.time}</div>
             <div>
                 <div>
-                    <img src={
+                    <img alt="forecasti-con" src={
                         props.icon
                             ? `http://openweathermap.org/img/wn/${props.icon}@2x.png`
                             : null
