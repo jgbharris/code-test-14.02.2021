@@ -53,14 +53,12 @@ main {
   font-size: 30px;
   text-align: center;
   border-top: 2px solid black;
-  /* text-shadow: 3px 3px rgba(58, 53, 53, 0.73); */
 }
 
 .location-container .date {
   color: black;
   font-size: 20px;
   text-align: center;
-  /* text-shadow: 3px 3px rgba(58, 53, 53, 0.73); */
 }
 
 .weather-container {

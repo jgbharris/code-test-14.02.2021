@@ -25,19 +25,14 @@ function App() {
         .then((result) => {
           setQuery("");
           setWeather(result);
-          console.log(result);
         });
     }
   };
 
   let forecastWeather = []
 
-  console.log("weather", weather)
-  console.log("forecastWeather", forecastWeather)
-
   // eslint-disable-next-line
   weather && weather.list ? forecastWeather = weather.list.slice(1) : null
-  console.log("forecastWeather", forecastWeather)
 
   return (
     <div>
@@ -62,16 +57,16 @@ function App() {
           feels={Math.round((weather.list[0]["main"]["feels_like"]))}
           humidity={(weather.list[0]["main"]["humidity"])}
           description={(weather.list[0]["weather"][0]["description"])} /> : null}
-          {forecastWeather
-                ? forecastWeather.map((forecastBox, index) => (
-                    <ForecastWeatherBox
-                        key={index}
-                        time={forecastBox.dt_txt}
-                        icon={forecastBox["weather"][0]["icon"]}
-                        temp={Math.round(forecastBox["main"]["temp"])}
-                    />
-                ))
-                : null}
+        {forecastWeather
+          ? forecastWeather.map((forecastBox, index) => (
+            <ForecastWeatherBox
+              key={index}
+              time={forecastBox.dt_txt}
+              icon={forecastBox["weather"][0]["icon"]}
+              temp={Math.round(forecastBox["main"]["temp"])}
+            />
+          ))
+          : null}
       </main>
     </div>
   );

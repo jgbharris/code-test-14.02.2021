@@ -11,7 +11,7 @@ function ForecastWeatherBox(props) {
                     } />
                 </div>
             </div>
-                <div className="temperature">{props.temp}°C</div>
+            <div className="temperature">{props.temp}°C</div>
         </div>
     )
 }
